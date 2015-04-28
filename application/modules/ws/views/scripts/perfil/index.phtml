@@ -1,0 +1,94 @@
+<?php
+//print_r($this->user);
+?>
+<form role="form" class="form-horizontal" action="/home/perfil/edit/" id="updatePerfil">
+    <div class="col-md-4 col-lg-5">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="panel profile-panel">
+                    <div class="panel-heading">
+                        <div class="panel-title"> <i class="fa fa-user"></i> User Profile -</div>
+                        <span class="panel-title-sm pull-left text-success" style="color: #7ec35d; padding-left: 7px; padding-top: 2px;"> Online</span>
+                        <div class="panel-btns pull-right margin-left">
+                            <div class="btn-group">
+                                <p class="popover-demo">
+                                    <button type="button" class="btn btn-primary btn-gradient" data-container="body" data-toggle="popover" data-placement="top" data-content=" <i class='fa fa-pencil'></i> <a href='/home/index/perfil'> Editar Conta </a>" title="&lt;i class='fa fa-bolt padding-right-sm'&gt;&lt;/i&gt; Perfil"> <i class="fa fa-hand-o-up"></i> Toggle top </button>
+                                    <!--<button type="button" class="btn btn-success btn-gradient" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Laoreet rutrum faucibus." title="&lt;i class='fa fa-bolt padding-right-sm'&gt;&lt;/i&gt; Top Danger"> <i class="fa fa-hand-o-down"></i> Toggle bottom </button>-->
+                                </p>
+                                <ul class="dropdown-menu checkbox-persist pull-right text-left" role="menu" id="text_new">
+                                    <li><a><i class="fa fa-envelope-o"></i> Message </a></li>
+                                    <li><a><i class="fa fa-user"></i> Add Friend </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" style="z-index: 0;">
+                        <div class="row">
+                            <div class="col-xs-7" id="profile-avatar"> <img src="<?php echo $this->user['user']->arquivoFoto; ?>" class="img-responsive" width="250" height="112" alt="avatar" /> </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title"> <i class="fa fa-pencil"></i> Dados Perfil </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="col-lg-3 text-right"> Usuário </label>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="Type Here..." class="form-control" value="<?php echo $this->user['user']->username; ?>" id="inputStandard">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="inputStandard"> Nome </label>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="Type Here..." value="<?php echo $this->user['user']->nomeCompleto; ?>" class="form-control" id="inputStandard">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="inputPassword">Password</label>
+                            <div class="col-lg-9">
+                                <input type="password" id="inputPassword" value="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="focusedInput"> E-mail </label>
+                            <div class="col-lg-9">
+                                <input type="text" value="<?php echo $this->user['user']->email; ?>" id="focusedInput" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="panel-footer">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <input class="submit btn btn-blue" id="pesquisar_pedidos" type="submit" value="Atualizar">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</form>
+
+
+<script type="text/javascript" src="/js/home/perfil.js"></script>

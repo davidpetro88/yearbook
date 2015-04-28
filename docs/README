@@ -1,0 +1,41 @@
+Foi utilizado no desenvolvimento URL projeto : http://www.gettrust.com.br/
+Versão do zend framework (1.12)
+Versão do bootstrap (3.0)
+Zend_cache, 
+Zend_db_abstract, 
+Zend_acl, 
+Zend_crud e 
+bootstrap
+1 - Criar o vhost apontando para pasta public do projeto.
+Exemplo 
+<VirtualHost *:80>
+        ServerAdmin webmaster@example.com
+        ServerName  yearbook
+        ServerAlias yearbook
+
+        # Indexes + Directory Root.
+        DocumentRoot /var/www/yearbook/public
+
+         <Directory /var/www/yearbook/public/>
+                DirectoryIndex index.php
+                Options Indexes FollowSymLinks
+		AllowOverride all
+		Order allow,deny
+		allow from all
+        </Directory>
+
+        # Logfiles
+        ErrorLog /var/log/apache2/yearbook-error.log
+        CustomLog /var/log/apache2/yearbook-access.log common
+</VirtualHost>
+
+e habilitar em hosts o server name.
+
+2 - habilitar o apc php.
+
+3 - Criar o banco de dados em anexo na pasta e recriar a view endereco_cliente.
+
+4 - Roles contem as categorias cadastradas, permissions os arquivos e permissões, resources
+os arquivos.
+
+

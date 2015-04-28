@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="Cache-control" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache, must-revalidate">	
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <?php echo $this->headMeta(); ?> 
+        <?php echo $this->headTitle(); ?>
+
+        <!-- Font CSS  -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
+
+        <!-- Core CSS  -->
+        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="/fonts/glyphicons_pro/glyphicons.min.css" />
+
+
+        <!-- Theme CSS -->
+
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/theme.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/pages.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/plugins.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/responsive.css') . "\n\r"; ?>  
+
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/vendor/plugins/daterange/daterangepicker.css') . "\n\r"; ?>  
+
+
+
+        <!-- Demonstration CSS -->
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/demo.css') . "\n\r"; ?>  
+
+        <!-- Your Custom CSS -->
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/custom.css') . "\n\r"; ?>  
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.ico" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <?php
+    $auth = Zend_Auth::getInstance();
+    $user = $auth->getStorage()->read();
+    ?>
+    <body class="fixed-breadcrumbs sidebar-collapsed">
+        <!--	<div id="loading"></div>-->
+        <div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                        <h4 class="modal-title">CARREGANDO</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert">
+                            <img src="/img/loadings/ajax-loader.gif">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start: Theme Preview Pane -->
+        <!--	<div id="skin-toolbox">
+                    <div class="skin-toolbox-toggle"> <i class="fa fa-flask"></i> </div>
+                    <div class="skin-toolbox-panel">
+                        <h4 class="padding-left-sm">Theme Options</h4>
+                        <form id="skin-toolbox-form" />
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input id="header-option" class="checkbox" type="checkbox" checked="" />
+                                Fixed <b>Header</b> </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input id="sidebar-option" class="checkbox" type="checkbox" />
+                                Fixed <b>Sidebar</b> </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline option-disabled">
+                                <input id="breadcrumb-option" class="checkbox" type="checkbox" disabled="" />
+                                Fixed <b>Breadcrumbs</b> </label>
+                        </div>
+                        <hr class="short" style="margin: 7px 10px;" />
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input id="breadcrumb-hidden" class="checkbox" type="checkbox" />
+                                Hide <b>Breadcrumbs</b> </label>
+                        </div>
+                        <div class="form-group margin-bottom-lg">
+                            <label class="checkbox-inline">
+                                <input id="searchbar-hidden" class="checkbox" type="checkbox" />
+                                Hide <b>Search Bar</b> </label>
+                        </div>
+                        <h4 class="padding-left-sm">Layout Options</h4>
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input class="radio" type="radio" name="optionsRadios" id="fullwidth-option" checked="" />
+                                Fullwidth </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input class="radio" type="radio" name="optionsRadios" id="boxed-option" />
+                                Boxed Layout</label>
+                        </div>
+                        <hr class="short" />
+                        <div class="form-group"> <a href="customizer.html" id="customizer-link" class="btn btn-warning btn-gradient btn-block padding-bottom padding-top">CUSTOMIZER</a> </div>
+                        </form>
+                    </div>
+                </div>-->
+        <!-- End: Theme Preview Pane --> 
+
+        <!-- Start: Header -->
+        <header class="navbar navbar-fixed-top">
+            <div class="pull-left"> <a class="navbar-brand" href="/">
+                    <div class="navbar-logo"><img src="/imagens/alopanvel.jpg" class="img-responsive" alt="logo" /></div>
+                </a> 
+            </div>
+
+
+            <div class="pull-right header-btns">
+                <div class="btn-group user-menu">
+                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"> <span class="glyphicons glyphicons-user"></span> <b><?php echo $user['user']->nomeCompleto; ?></b> </button>
+                    <ul class="dropdown-menu checkbox-persist" role="menu">
+                        <li class="menu-arrow">
+                            <div class="menu-arrow-up"></div>
+                        </li>
+                        <li class="dropdown-header">Your Account <span class="pull-right glyphicons glyphicons-user"></span></li>
+                        <li class="dropdown-header"> <span> <i class="fa fa-lock"></i> <a href="/login/index/logout"> sair </a> </span></li>
+                    </ul>
+                </div>
+                <div style="width:40px; height: 28px;"></div>
+            </div>
+
+
+
+
+        </header>
+
+        <!-- End: Header --> 
+        <!-- Start: Main -->
+        <div id="main"> 
+            <!-- Start: Sidebar -->
+            <aside id="sidebar" class="affix">
+                <div id="sidebar-search">
+                    <form role="search" />
+                    <input type="text" class="search-bar form-control" placeholder="Search" />
+                    <i class="fa fa-search field-icon-right"></i>
+                    <button type="submit" class="btn btn-default hidden"></button>
+                    </form>
+                    <div class="sidebar-toggle"> <i class="fa fa-bars"></i> </div>
+                </div>
+                <div id="sidebar-menu">
+                    <ul class="nav sidebar-nav">
+                        <li> <a href="/"><span class="glyphicons glyphicons-star"></span><span class="sidebar-title">Dashboard</span></a> </li>
+                        <li> <a class="accordion-toggle collapsed" href="#resources"><span class="glyphicons glyphicons-settings"></span><span class="sidebar-title">Resources</span><span class="caret"></span></a>
+                            <ul id="resources" class="nav sub-nav">
+                                <li><a href="customizer.html"><span class="glyphicons glyphicons-edit"></span> Theme Customizer</a></li>
+                                <li><a href="documentation/index.html"><span class="glyphicons glyphicons-book"></span> Documentation </a></li>
+                            </ul>
+                        </li>
+
+                        <li> <a class="accordion-toggle collapsed" href="#pedidos"><span class="glyphicons glyphicons-sort"></span><span class="sidebar-title">Pedidos</span><span class="caret"></span></a>
+                            <ul id="pedidos" class="nav sub-nav">
+                                <li><a href="/pedidos/search"><span class="glyphicons glyphicons-search"></span> Pesquisar</a></li>
+                                <!--<li><a href="documentation/index.html"><span class="glyphicons glyphicons-book"></span> Documentation </a></li>-->
+                            </ul>
+                        </li>
+
+                        <li> <a class="accordion-toggle collapsed" href="#sideTwo"><span class="glyphicons glyphicons-sort"></span><span class="sidebar-title">Filiais</span><span class="caret"></span></a>
+                            <ul id="sideTwo" class="nav sub-nav">
+                                <li><a href="/filiais/imprime"><span class="glyphicons glyphicons-search"></span> Imprime Etiquetas </a></li>
+                                <!--<li><a href="documentation/index.html"><span class="glyphicons glyphicons-book"></span> Documentation </a></li>-->
+                            </ul>
+                        </li>
+<!--			<li> <a class="accordion-toggle collapsed" href="#sideOne"><span class="glyphicons glyphicons-adjust_alt"></span><span class="sidebar-title">UI Elements</span><span class="caret"></span></a>
+                            <ul id="sideOne" class="nav sub-nav">
+                                <li><a href="buttons.html"><span class="glyphicons glyphicons-macbook"></span> Buttons</a></li>
+                                <li><a href="typography.html"><span class="glyphicons glyphicons-font"></span> Typography</a></li>
+                                <li><a href="elements.html"><span class="glyphicons glyphicons-paperclip"></span> Elements</a></li>
+                                <li><a href="charts.html"><span class="glyphicons glyphicons-stats"></span> Charts</a></li>
+                                <li><a href="tabs.html"><span class="glyphicons glyphicons-adjust"></span> Tabs</a></li>
+                                <li><a href="grid.html"><span class="glyphicons glyphicons-show_big_thumbnails"></span> Grid</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="accordion-toggle collapsed" href="#sideTwo"><span class="glyphicons glyphicons-vcard"></span><span class="sidebar-title">Form Elements</span><span class="caret"></span></a>
+                            <ul id="sideTwo" class="nav sub-nav">
+                                <li><a href="forms.html"><span class="glyphicons glyphicons-link"></span> Form Elements</a></li>
+                                <li><a href="validation.html"><span class="glyphicons glyphicons-ok"></span> Form Validation</a></li>
+                                <li><a href="wizard.html"><span class="glyphicons glyphicons-magic"></span> Form Wizard</a></li>
+                                <li><a href="editors.html"><span class="glyphicons glyphicons-pencil"></span> Editors</a></li>
+                                <li><a href="editable.html"><span class="glyphicons glyphicons-edit"></span> Inline Editing</a></li>
+                                <li><a href="xedit.html"><span class="glyphicons glyphicons-check"></span> X-editable</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="accordion-toggle collapsed" href="#sideThree"><span class="glyphicons glyphicons-table"></span><span class="sidebar-title">Tables</span><span class="caret"></span></a>
+                            <ul id="sideThree" class="nav sub-nav">
+                                <li><a href="tables.html"><span class="glyphicons glyphicons-justify"></span> Tables</a></li>
+                                <li><a href="datatables.html"><span class="glyphicons glyphicons-list"></span> DataTables</a></li>
+                                <li><a href="pricing-tables.html"><span class="glyphicons glyphicons-usd"></span> Pricing Tables</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="accordion-toggle collapsed" href="#sideFour"><span class="glyphicons glyphicons-cargo"></span><span class="sidebar-title">File Managers</span><span class="caret"></span></a>
+                            <ul id="sideFour" class="nav sub-nav">
+                                <li><a href="file-manager.html"><span class="glyphicons glyphicons-cloud"></span> File Manager</a></li>
+                                <li><a href="upload-tools.html"><span class="glyphicons glyphicons-cloud-upload"></span> File Uploaders</a></li>
+                                <li><a href="dynamic-gallery.html"><span class="glyphicons glyphicons-picture"></span> Dynamic Gallery</a></li>
+                                <li><a href="image-tools.html"><span class="glyphicons glyphicons-camera"></span> Image Tools</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="accordion-toggle collapsed" href="#sideFive"><span class="glyphicons glyphicons-magic"></span><span class="sidebar-title">Extras</span><span class="caret"></span></a>
+                            <ul id="sideFive" class="nav sub-nav">
+                                <li><a href="icons.html"><span class="glyphicons glyphicons-flash"></span> Icons</a></li>
+                                <li><a href="animations.html"><span class="glyphicons glyphicons-fire"></span> Animations</a></li>
+                                <li><a href="sliders.html"><span class="glyphicons glyphicons-retweet"></span> Sliders</a></li>
+                                <li><a href="sketchpad.html"><span class="glyphicons glyphicons-vector_path_square"></span> Sketchpad</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="maps.html"><span class="glyphicons glyphicons-globe"></span><span class="sidebar-title">Maps</span></a> </li>
+                        <li> <a href="widgets.html"><span class="glyphicons glyphicons-restart"></span><span class="sidebar-title">Widgets</span></a> </li>
+                        <li> <a class="accordion-toggle collapsed" href="#sideSix"><span class="glyphicons glyphicons-book_open"></span><span class="sidebar-title">Pages</span><span class="caret"></span></a>
+                            <ul id="sideSix" class="nav sub-nav">
+                                <li><a href="invoice-page.html"><span class="glyphicons glyphicons glyphicons-print"></span> Printable Invoice</a></li>
+                                <li><a href="timeline.html"><span class="glyphicons glyphicons-film"></span> Timeline</a></li>
+                                <li><a href="gallery.html"><span class="glyphicons glyphicons-picture"></span> Gallery</a></li>
+                                <li><a href="calendar.html"><span class="glyphicons glyphicons-calendar"></span> Calendar</a></li>
+                                <li><a href="messages.html"><span class="glyphicons glyphicons-envelope"></span> Messages</a></li>
+                                <li><a href="profile.html"><span class="glyphicons glyphicons-user"></span> User Profile</a></li>
+                            </ul>
+                        </li>
+                        <li class="active"> <a class="accordion-toggle" href="#sideSeven"><span class="glyphicons glyphicons-warning_sign"></span><span class="sidebar-title">Utility Pages</span><span class="caret"></span></a>
+                            <ul id="sideSeven" class="nav sub-nav menu-open">
+                                <li><a href="faq.html"><span class="glyphicons glyphicons-edit"></span> Faq Page</a></li>
+                                <li><a href="login.html"><span class="glyphicons glyphicons-power"></span> Login Page</a></li>
+                                <li><a href="screen-lock.html"><span class="glyphicons glyphicons-lock"></span> Screen Lock</a></li>
+                                <li><a href="coming-soon.html"><span class="glyphicons glyphicons-road"></span> Coming Soon</a></li>
+                                <li><a href="404-page.html"><span class="glyphicons glyphicons-circle_remove"></span> 404 Page</a></li>
+                                <li><a href="500-page.html"><span class="glyphicons glyphicons-circle_exclamation_mark"></span> 500 Page</a></li>
+                                <li class="active"><a href="blank.html"><span class="glyphicons glyphicons-unchecked"></span> Blank Page</a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </div>
+            </aside>
+            <!-- End: Sidebar --> 
+            <!-- Start: Content -->
+            <section id="content">
+                <div id="topbar">
+                    <ol class="breadcrumb">
+                        <li><a href="/home/"><i class="fa fa-home"></i></a></li>
+                        <li><a href="/home/">Home</a></li>
+                        <li class="active">Blank Page</li>
+                    </ol>
+                </div>
+                <div class="container"> 
+                    <?php echo $this->layout()->content; ?>
+                </div>
+            </section>
+            <!-- End: Content --> 
+        </div>
+        <!-- End: Main --> 
+
+
+
+        <script type="text/javascript" src="vendor/plugins/validate/jquery.validate.js"></script> 
+        <script type="text/javascript" src="vendor/plugins/formwizard/jquery.bootstrap.wizard.js"></script> 
+        <script type="text/javascript" src="vendor/plugins/formswitch/js/bootstrap-switch.min.js"></script>
+
+
+
+        <!-- Core Javascript - via CDN --> 
+        <script src="/js/jquery.min.js"></script> 
+        <script src="/js/jquery-ui.min.js"></script> 
+        <script src="/js/bootstrap.min.js"></script> 
+        <!-- Theme Javascript --> 
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // Init Theme Core 	  
+                Core.init();
+                $('#retorno').hide();
+                $('#loading').hide();
+                // init popover
+                $("[data-toggle=popover]").popover({html: true})
+
+                // popover auto close timer  
+                $('.popover-demo button').on('show.bs.popover', function() {
+                    var This = $(this);
+
+                    var animate = window.setTimeout(function() {
+                        $(This).popover('hide')
+                    }, 4500);
+                });
+
+
+                //var validateCheck 
+                var $validator = $("#commentForm").validate({
+                    errorPlacement: function(error, element) {
+                        element.parent().parent().append(error);
+                    }
+                });
+
+                // Bootstrap Cadastro
+                $('#rootwizard').bootstrapWizard({
+                    'tabClass': '',
+                    'onNext': function(tab, navigation, index) {
+                        var $valid = $("#commentForm").valid();
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        var $percent = ($current / $total) * 100;
+                        var $cur = index;
+                        var valSwitch = $('#switch1').children();
+
+                        if (valSwitch.hasClass('switch-on')) {
+
+                            if (!$valid) {
+                                $validator.focusInvalid();
+                                return false;
+                            }
+                            else {
+                                $('ul.wizard-steps li:nth-child(' + $cur + ')').addClass('passed');
+                                $('#rootwizard').find('.progress-bar').animate({width: $percent + '%'});
+                            }
+                        }
+                        else {
+                            $('ul.wizard-steps li:nth-child(' + $cur + ')').addClass('passed');
+                            $('#rootwizard').find('.progress-bar').animate({width: $percent + '%'});
+                        }
+
+                        if ($current == $total) {
+                            $('li.save').show();
+                        }
+                    },
+                    'onPrevious': function(tab, navigation, index) {
+                        var $valid1 = $("#commentForm").valid();
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        var $percent = ($current / $total) * 100;
+                        var valSwitch1 = $('#switch1').children();
+
+                        if ($current == 0) {
+                            return false;
+
+                        }
+                        else if (valSwitch1.hasClass('switch-on')) {
+
+                            if (!$valid1) {
+                                $validator.focusInvalid();
+                                return false;
+                            }
+                            else {
+                                $('#rootwizard').find('.progress-bar').animate({width: $percent + '%'});
+                            }
+                        }
+                    },
+                    'onTabClick': function(tab, navigation, index) {
+                        return false;
+                    }
+
+                });
+
+
+
+
+
+
+            });
+        </script>
+        <script type="text/javascript" src="/vendor/plugins/daterange/moment.min.js"></script> 
+        <script type="text/javascript" src="/vendor/plugins/daterange/daterangepicker.js"></script> 
+        <script src="vendor/plugins/formwizard/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+        <script src="vendor/plugins/formswitch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/js/uniform.min.js"></script> 
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/custom.js"></script> 
+        <script type="text/javascript"  src="/js/pedidos/pesquisar.js"></script>
+        <script type="text/javascript"  src="/js/filiais/imprime.js"></script>
+
+    </body>
+</html>

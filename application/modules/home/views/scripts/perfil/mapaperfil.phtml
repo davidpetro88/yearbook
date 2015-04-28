@@ -1,0 +1,22 @@
+<style>
+
+    .infoBox { background-color: #FFF; width: 300px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; border: 2px solid #3fa7d8; border-radius: 3px; margin-top: 10px }
+    .infoBox p { padding: 0 15px }
+    .infoBox:before { border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #3fa7d8; top: -10px; content: ""; height: 0; position: absolute; width: 0; left: 138px }
+	
+</style>
+    <div class="col-md-12" id="mapper-location"> 
+		<div id="mapa" style=""> </div>
+	</div>
+
+<!-- Maps API Javascript -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<!-- Caixa de informação -->
+<script src="/js/mapa/infobox.js"></script>
+
+<!-- Agrupamento dos marcadores -->
+<script src="/js/mapa/markerclusterer.js"></script>
+
+<!-- Arquivo de inicialização do mapa -->
+<script src="/js/mapa/mapa.js"></script>

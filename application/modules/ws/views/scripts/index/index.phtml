@@ -1,0 +1,135 @@
+
+    <div class="row">
+        <div class="col-md-5 col-lg-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel profile-panel">
+                        <div class="panel-heading">
+                            <div class="panel-title"> <i class="fa fa-user"></i> User Profile -</div>
+                            <span class="panel-title-sm pull-left text-success" style="color: #7ec35d; padding-left: 7px; padding-top: 2px;"> Online</span>
+                            <div class="panel-btns pull-right margin-left">
+                                <div class="btn-group">
+                                    <p class="popover-demo">
+                                        <button type="button" class="btn btn-primary btn-gradient" data-container="body" data-toggle="popover" data-placement="top" data-content=" <i class='fa fa-pencil'></i> <a href='/home/index/perfil'> Editar Conta </a>" title="&lt;i class='fa fa-bolt padding-right-sm'&gt;&lt;/i&gt; Perfil"> <i class="fa fa-hand-o-up"></i> Toggle top </button>
+                                        <!--<button type="button" class="btn btn-success btn-gradient" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Laoreet rutrum faucibus." title="&lt;i class='fa fa-bolt padding-right-sm'&gt;&lt;/i&gt; Top Danger"> <i class="fa fa-hand-o-down"></i> Toggle bottom </button>-->
+                                    </p>
+                                    <ul class="dropdown-menu checkbox-persist pull-right text-left" role="menu" id="text_new">
+                                        <li><a><i class="fa fa-envelope-o"></i> Message </a></li>
+                                        <li><a><i class="fa fa-user"></i> Add Friend </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body" style="z-index: 0;">
+                            <div class="row">
+                                <div class="col-xs-5" id="profile-avatar"> <img src="<?php echo $this->user['user']->arquivoFoto; ?>" class="img-responsive" width="150" height="112" alt="avatar" /> </div>
+                                <div class="col-xs-7">
+                                    <div class="profile-data"> <span class="profile-name"> <b class="text-primary"><?php echo $this->user['user']->nomeCompleto; ?> </b></span> <span class="profile-email"> <?php echo $this->user['user']->email; ?> </span>
+                                        <ul class="profile-info list-unstyled">
+                                            <li><i class="fa fa-globe"></i> <?php echo $this->user['user']->nomeCidade; ?>, <?php echo $this->user['user']->sigaEstado; ?></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-lg-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-title"> <i class="fa fa-pencil"></i> Administração </div>
+                            <ul class="nav panel-tabs">
+                                <li class="active"><a href="#tab1" data-toggle="tab">Mensagem</a></li>
+                                <li><a href="#tab2" data-toggle="tab">Regras</a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-body padding-none margin-top-sm">
+                            <div class="tab-content padding-none border-none">
+                                <div id="tab1" class="tab-pane active">
+                                    <div class="tab-body">
+                                        <div class="media margin-top-lg chat-panel">
+                                            <div class="media-img pull-left"> <img src="/img/alunos/david_rodrigues.jpg" class="img-responsive" alt="avatar" /> </div>
+                                            <div class="media-body">
+                                                <div class="media-content">
+                                                    <h4 class="media-heading">David Abraão Petró Rodrigues</h4>
+                                                    <p class="media-timestamp">January 12, 2013 at 1:38 pm</p>
+                                                    Olá seja bem vindo <strong><?php echo $this->user['user']->nomeCompleto; ?> </strong>  ao YearBook da Puc de Minas. </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <form class="form-horizontal margin-top" role="form" />
+                                        <div class="form-group">
+                                            <label for="inputResponse" class="col-md-2 control-label">Respond</label>
+                                            <div class="col-md-8">
+                                                <input id="inputResponse" type="text" class="form-control" placeholder="Type Here..." />
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="button" class="btn btn-primary">Reply</button>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="tab2" class="tab-pane">
+                                    <div class="tab-body">
+                                        <table class="table table-striped table-widget table-checklist" id="datatable_2">
+                                            <thead>
+                                                <tr>
+                                                    <th>Status</th>
+                                                    <th>Date</th>
+                                                    <th>Description</th>
+                                                    <th>Assigned To</th>
+                                                    <th>Number</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="label label-primary">PHP</span></td>
+                                                    <td>10/19/2013</td>
+                                                    <td>Develop <b>Prototype</b> for amazon matrix</td>
+                                                    <td>Ashley Time</td>
+                                                    <td><b>[#4311525]</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="label label-primary">Utility</span></td>
+                                                    <td>11/14/2013</td>
+                                                    <td>Convert Frontend to <b>Bootstrap 3</b></td>
+                                                    <td>Roger Wins</td>
+                                                    <td><b>[#1531275]</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="label label-primary">CSS</span></td>
+                                                    <td>01/03/2014</td>
+                                                    <td>Re-Style client <b>Header</b> for release</td>
+                                                    <td>Kevin Heart</td>
+                                                    <td><b>[#6233255]</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="label label-primary">HTML</span></td>
+                                                    <td>10/29/2013</td>
+                                                    <td>Create new <b>Accordion</b> for FAQ</td>
+                                                    <td>Jacop Parker</td>
+                                                    <td><b>[#5332275]</b></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,37 @@
+<div class="row">
+</div>
+<div class="row" id="row-login">
+    <div class="panel" id="panel-login">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-lock"></i> Login </div>
+            <span class="panel-title-sm pull-right padding-right-sm">Bem Vindo</span> </div>
+        <div class="panel-body">
+            <div class="login-avatar"> <img src="/img/puc_minas_virtual_home.png" width="150" height="112" alt="avatar" /> </div>
+
+            <?php
+            /**
+             * Login page view
+             *  
+             * @author Enrico Zimuel (enrico@zimuel.it)
+             */
+            ?>
+            <?php
+            if (!empty($this->message)) {
+                echo '<font color="red">';
+                echo $this->escape($this->message[0]);
+                echo '</font>';
+            }
+//
+            $this->form->setName('login')
+                    ->setAction('/login/index/login')
+                    ->setMethod('post');
+            echo $this->form;
+            ?>
+
+            
+
+
+            <div> <a href="/index/cadastrar/"> Criar uma conta </a> </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="Cache-control" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache, must-revalidate">	
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <?php echo $this->headMeta(); ?> 
+        <?php echo $this->headTitle(); ?>
+
+        <!-- Font CSS  -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
+
+        <!-- Core CSS  -->
+        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="/fonts/glyphicons_pro/glyphicons.min.css" />
+
+
+        <!-- Theme CSS -->
+
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/theme.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/pages.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/plugins.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/responsive.css') . "\n\r"; ?>  
+
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/vendor/plugins/daterange/daterangepicker.css') . "\n\r"; ?>  
+
+
+
+        <!-- Demonstration CSS -->
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/demo.css') . "\n\r"; ?>  
+
+        <!-- Your Custom CSS -->
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/custom.css') . "\n\r"; ?>  
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.ico" />
+
+        <!-- reponsive yearbook CSS -->
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/yearbook_responsive.css') . "\n\r"; ?>
+    </head>
+
+    <body class="login-page">
+        <!-- Start: Main -->
+        <div id="main">
+            <div class="container">
+                <?php echo $this->layout()->content; ?>
+
+            </div>
+        </div>
+        <!-- End: Main --> 
+
+
+        <!-- Core Javascript - via CDN --> 
+        <script src="/js/jquery.min.js"></script> 
+        <script src="/js/jquery-ui.min.js"></script> 
+        <script src="/js/bootstrap.min.js"></script> 
+        <!-- Theme Javascript --> 
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // Init Theme Core 	  
+                Core.init();
+                $('#retorno').hide();
+                $('#loading').hide();
+            });
+        </script>
+        <script type="text/javascript" src="/vendor/plugins/daterange/moment.min.js"></script> 
+        <script type="text/javascript" src="/vendor/plugins/daterange/daterangepicker.js"></script> 
+        <script type="text/javascript" src="/js/uniform.min.js"></script> 
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/custom.js"></script> 
+        <script type="text/javascript"  src="/js/pedidos/pesquisar.js"></script>
+        <script type="text/javascript"  src="/js/filiais/imprime.js"></script>
+    </body>
+</html>

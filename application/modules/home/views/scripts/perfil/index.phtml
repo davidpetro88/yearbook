@@ -1,0 +1,215 @@
+<script type="text/javascript">
+    var idEstadoClient = '<?php echo $this->user['user']->idEstado; ?>';
+    var ufClient = '<?php echo $this->user['user']->sigaEstado; ?>';
+    var cidadeClient = '<?php echo $this->user['user']->nomeCidade; ?>';
+</script>
+<form role="form" class="form-horizontal" id="updatePerfil">
+    <div class="col-md-3 col-lg-4">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="panel profile-panel">
+                    <div class="panel-heading">
+                        <div class="panel-title"> <i class="fa fa-user"></i> User Profile -</div>
+                        <span class="panel-title-sm pull-left text-success" style="color: #7ec35d; padding-left: 7px; padding-top: 2px;"> Online</span>
+                    </div>
+                    <div class="panel-body" style="z-index: 0;">
+
+                        <div data-name="myimage" data-provides="fileupload" class="fileupload fileupload-exists">
+                            <input type="hidden" value="" name="myimage">
+                            <div id="new">
+                                <div id="img_profile" style="max-width: 300px; max-height: 260px; line-height: 34px;" class="fileupload-preview fileupload-exists thumbnail"> </div>
+                            </div>
+                            <div >
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-gradient" type="button" id="pesq_img">Alterar</button>
+                                    <input name="img_perfil" id="img_perfil" style="display: none;" id="file_upload_perfil" class="btn btn-primary btn-gradient"  value="imagem" type="file">
+                                </div>
+                                <input style="display: none;" id="file_upload_perfil" class="btn btn-primary btn-gradient"  value="imagem" type="file">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title"> <i class="fa fa-pencil"></i> Dados Perfil </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="form-group" style="display:none;">
+                            <label class="col-lg-3 text-right"> Usuário </label>
+                            <div class="col-lg-9">
+                                <input type="text" name="username" class="form-control" value="<?php echo $this->user['user']->username; ?>" id="inputStandard">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="inputStandard"> Nome </label>
+                            <div class="col-lg-9">
+                                <input type="text" id="nomeCompleto" name="nomeCompleto" value="<?php echo $this->user['user']->nomeCompleto; ?>" class="form-control" id="inputStandard">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" style="display: none;" id="result_uf">
+
+                        </div>
+
+
+                        <div class="form-group" style="display: none;" id="result_cidade">
+
+                        </div>
+
+                        <div class="form-group"  style="display:none;">>
+                            <label class="col-lg-3 control-label" for="inputPassword">Password</label>
+                            <div class="col-lg-9">
+                                <input type="password" name="password" id="inputPassword" value="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="focusedInput"> E-mail </label>
+                            <div class="col-lg-9">
+                                <input type="text" id="email" name="email" value="<?php echo $this->user['user']->email; ?>" id="focusedInput" class="form-control">
+                            </div>
+                        </div>
+
+                        <!--                        <div class="panel-footer">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <input class="submit btn btn-blue" id="pesquisar_pedidos" type="submit" value="Atualizar">
+                                                        </div>
+                                                    </div>
+                                                </div>-->
+
+
+                        <div class="form-group">
+
+                            <div class="col-lg-6">
+                                <button value="Atualizar Perfil" class="btn btn-primary btn-gradient submitFormPerfil" id="submitFormPerfil" data-toggle="modal" data-target="#submitModal">
+                                    <i class="glyphicons glyphicons-search"></i>
+                                    <label> Atualizar </label>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">Itens Encontrados</h4>
+            </div>
+
+            <div class="modal-body" id="getTableIntes">
+                <div id="totalr"></div>
+                <div>
+                    <ul id="paginacao" class="pagination margin-bottom"></ul>
+                </div>
+                <table border="1" class="table tabs-below dataTable" id="Itens_select">
+                    <thead>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #defaultModal {
+        z-index: 9999999;
+    }
+    table.jQuery tr {
+        background-color: #b7cebd !important;
+    }
+    table.jQuery tr.even {
+        background-color: #b7cebd !important;
+    }
+    table.jQuery tr.hover {
+        background-color: #b7cebd !important;
+    }
+    table.jQuery tr.even.hover {
+        background-color: #5E740B !important;
+    }
+
+    table.css thead th {
+        background-color: #bbb !important;
+    }
+    table.css tfoot td {
+        background-color: #f5f5f5 !important;
+    }
+    table.css tr:nth-child(even) {
+        background-color: #fff !important;
+    }
+    table.css tr:nth-child(odd) {
+        background-color: #f5f5f5 !important;
+    }
+    table.css tr:nth-child(even):hover {
+        background-color: #1c94c4 !important;
+    }
+    table.css tr:nth-child(odd):hover {
+        background-color: #39b3d7 !important;
+    }
+    table.cabec th {
+        border: 1px solid #000 !important
+    }
+</style>  
+
+
+<link rel="stylesheet" href="/vendor/plugins/jqueryupload/css/jquery.fileupload.css" />
+<link rel="stylesheet" href="/vendor/plugins/jqueryupload/css/jquery.fileupload-ui.css" />
+
+
+<script type="text/javascript" src="/vendor/bootstrap/fileupload/fileupload.js"></script> 
+<script type="text/javascript" src="/js/home/perfil.js"></script>

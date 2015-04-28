@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="Cache-control" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache, must-revalidate">	
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <?php echo $this->headMeta(); ?> 
+        <?php echo $this->headTitle(); ?>
+
+        <!-- Font CSS  -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
+
+        <!-- Core CSS  -->
+        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="/fonts/glyphicons_pro/glyphicons.min.css" />
+
+
+        <!-- Plugin CSS -->
+        <link rel="stylesheet" type="text/css" href="/vendor/plugins/chosen/chosen.min.css" />
+        <link rel="stylesheet" type="text/css" href="/vendor/plugins/timepicker/bootstrap-timepicker.min.css" />
+        <link rel="stylesheet" type="text/css" href="/vendor/plugins/colorpicker/colorpicker.css" />
+        <link rel="stylesheet" type="text/css" href="/vendor/plugins/datepicker/datepicker.css" />
+        <link rel="stylesheet" type="text/css" href="/vendor/plugins/daterange/daterangepicker.css" />
+        <link rel="stylesheet" type="text/css" href="/vendor/plugins/formswitch/css/bootstrap-switch.css" />
+        <link rel="stylesheet" type="text/css" href="/vendor/plugins/tags/tagmanager.css" />
+
+        <!-- Theme CSS -->
+
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/theme.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/pages.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/plugins.css') . "\n\r"; ?>  
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/responsive.css') . "\n\r"; ?>  
+
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/vendor/plugins/daterange/daterangepicker.css') . "\n\r"; ?>  
+
+
+
+        <!-- Demonstration CSS -->
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/demo.css') . "\n\r"; ?>  
+
+        <!-- Your Custom CSS -->
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/custom.css') . "\n\r"; ?>  
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.ico" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Core Javascript - via CDN --> 
+        <script src="/js/jquery-1.10.2.js"></script> 
+        <script src="/js/jquery-ui.js-1.10.3.js"></script>
+        <!--<script src="/js/jquery-1.11.1.min.js"></script>--> 
+        <script src="/js/bootstrap.min.js"></script> 
+
+
+        <!-- Plugins --> 
+        <script type="text/javascript" src="/vendor/plugins/globalize/globalize.js"></script> 
+        <script type="text/javascript" src="/vendor/plugins/chosen/chosen.jquery.min.js"></script> 
+        <script type="text/javascript" src="/vendor/plugins/daterange/moment.min.js"></script> 
+        <script type="text/javascript" src="/vendor/plugins/colorpicker/bootstrap-colorpicker.js"></script> 
+        <script type="text/javascript" src="/vendor/plugins/formswitch/js/bootstrap-switch.min.js"></script> 
+        <script type="text/javascript" src="/vendor/plugins/jquerymask/jquery.maskedinput.min.js"></script> 
+        <script type="text/javascript" src="/vendor/plugins/tags/tagmanager.js"></script> 
+
+        <!-- Theme Javascript --> 
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // Init Theme Core 	  
+                Core.init();
+//                $('#loading').modal('show');
+                $('#retorno').hide();
+                $('#loading').hide();
+
+
+                // init popover
+                $("[data-toggle=popover]").popover({html: true})
+
+                // popover auto close timer  
+                $('.popover-demo button').on('show.bs.popover', function() {
+                    var This = $(this);
+
+                    var animate = window.setTimeout(function() {
+                        $(This).popover('hide')
+                    }, 4500);
+                });
+
+//                setTimeout(function() {
+//                    $('#loading').modal('hide');
+//                }, 600);
+
+            });
+
+        </script>
+        <script type="text/javascript" src="/js/uniform.min.js"></script> 
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/custom.js"></script> 
+    </head>
+	
+	    <style type="text/css">
+        /* no exist  ----------- */
+        @media only screen 
+        and (min-device-width : 200px) 
+        and (max-device-width : 319px) {
+            /* Styles */
+            #header-id{clear:both;position:relative;}
+            #topbar{clear:both;position:relative;width:20%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { width:30%}
+            .pull-left .img-responsive{ width:100%}
+            #header-right { width:35%}
+            #dropdown-menu-login {width:80%; float:right !important;   }
+
+            .container .panel {width:160px;}
+			#mapper-location #mapa {width:150px; height:100px;}
+			
+			.panel-heading {min-height:100px;}
+			#div_btn {display:table; float:left; width:100%;}
+			#div_btn .popover-demo { float:right;clear:both;}
+        }
+
+        /* Smartphones (portrait and landscape) ----------- */
+        @media only screen 
+        and (min-device-width : 320px) 
+        and (max-device-width : 480px) {
+            /* Styles */
+            #header-id{clear:both;position:relative;}
+            #topbar{clear:both;position:relative;width:20%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { width:30%}
+            .pull-left .img-responsive{ width:100%}
+            #header-right { width:35%}
+            #dropdown-menu-login {width:80%; float:right !important;   }
+
+            .container .panel {width:220px;}
+			#mapper-location #mapa {width:160px; height:200px;}
+			
+			.panel-heading {min-height:100px;}
+			#div_btn {display:table; float:left; width:100%;}
+			#div_btn .popover-demo { float:right;clear:both;}
+			
+			#table-email{display:none;}
+			#table-user{display:none;}
+			#table-email{display:none;}
+        }
+
+
+        /* Smartphones (landscape) ----------- */
+        @media only screen 
+        and (min-width : 321px ) 
+        and (max-width : 397px) {
+            /* Styles */
+            #header-id{ clear:both;position:relative;}
+            #topbar{ clear:both; position:relative;width:20%; display: none;}
+
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left {width:30%}
+            .pull-left .img-responsive{width:100%}
+            #header-right { width:30%}
+            #dropdown-menu-login { width:80%; float:right !important;   }
+
+            .container .panel {width:200px;}
+            .container .panel .btn-group { margin-left:  auto; margin-right:  auto; width: 50px; margin-top: 5px; clear:both;}
+			
+			#mapper-location #mapa {width:200px; height:200px;}
+			
+			.panel-heading{ min-height:90px;}
+			#div_btn {display:none;}
+			#div_btn .popover-demo { float:right;clear:both;}
+			
+			#table-email{display:none;}
+			#table-user{display:none;}
+			#table-name{display:none;}
+			#search-panel-user{display:none;}
+        }
+
+
+        @media only screen 
+        and (min-width : 398px ) 
+        and (max-width : 480px) {
+            /* Styles */
+            #header-id{ clear:both;position:relative;border:1px purple solid;}
+            #topbar{ clear:both; position:relative;width:20%; display: none;}
+
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left {width:30%}
+            .pull-left .img-responsive{width:100%}
+            #header-right { width:30%;}
+            #dropdown-menu-login { width:80%; float:right !important;   }
+
+            .container .panel {width:280px;}
+            .container .panel .btn-group { margin-left:  auto; margin-right:  auto; width: 50px; margin-top: 5px; clear:both;}
+			#mapper-location #mapa {width:280px; height:220px;}
+						
+			#div_btn {display:none;}
+			#div_btn .popover-demo { float:right;clear:both;}
+			
+			#table-email{display:none;}
+			#table-name{display:none;}
+			#search-panel-user{display:none;}
+        }
+
+
+        /* Smartphones (portrait) ----------- */
+        @media only screen 
+        and (max-width : 320px) {
+            /* Styles */
+            #header-id{clear:both;position:relative;}
+            #topbar{clear:both;position:relative;width:20%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { width:20%}
+            .pull-left .img-responsive{ width:100%}
+            #header-right { width:30%;margin-right:10px;}
+            #dropdown-menu-login {width:80%; float:right !important;   }
+
+            #header-right { width:30%}
+            #dropdown-menu-login { width:175px; float:left; margin-left: -120px;}
+			#mapper-location #mapa {width:200px; height:250px;float:left; margin-left: -20px;}
+	
+			.panel-title { font-size:10px;}
+			.panel-heading{ min-height:80px;}
+			#ul-administracao {display:none;}
+			#div_btn {display:none;}
+			#div_btn .popover-demo { float:right;clear:both;}
+			
+			#table-email{display:none;}
+			#table-user{display:none;}
+			#table-name{display:none;}
+			#search-panel-user{display:none;}
+        }
+
+        /* Neutro 1  ----------- */
+        @media only screen 
+        and (min-width : 480px) 
+        and (max-width : 767px) {
+            /* Styles */
+
+            #header-id{clear:both;position:relative;}
+            #topbar{clear:both;position:relative;width:30%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { width:20%; border:1px red solid;}
+            .pull-left .img-responsive{ width:100%}
+            #header-right { width:20%;}
+            #dropdown-menu-login {width:270px; float:left; margin-left: -220px;}
+
+			#mapper-location #mapa {width:390px; height:350px;}
+			
+			#div_btn {display:none;}
+			#div_btn .popover-demo { float:right;clear:both;}			
+			
+			#table-email{display:none;}
+			
+			#table-name{display:none;}
+			#search-panel-user{display:none;}
+        }
+
+        /* Neutro 2  ----------- */
+        @media only screen 
+        and (min-width : 768px) 
+        and (max-width : 998px) {
+            /* Styles */
+
+            #header-id{ clear:both;position:relative;}
+            #topbar{ clear:both;position:relative;width:30%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { width:30%}
+            .pull-left .img-responsive{ width:100%}
+            #header-right { width:10%}
+            #dropdown-menu-login { width:270px; float:left; margin-left: -220px;}
+
+			#mapper-location #mapa {width:640px; height:350px;}
+        }
+
+        /* Neutro 3  ----------- */
+        @media only screen 
+        and (min-width : 999px) 
+        and (max-width : 1223px) {
+            /* Styles */
+
+            #header-id{clear:both;position:relative;}
+            #topbar{clear:both;position:relative;width:30%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { width:30%}
+            .pull-left .img-responsive{ width:100%}
+            #header-right { width:7%}
+            #dropdown-menu-login { width:270px; float:left; margin-left: -220px;}
+
+			#mapper-location #mapa {width:890px; height:500px;}
+        }
+
+
+        /* iPads (landscape) ----------- */
+        @media only screen 
+        and (min-device-width : 768px) 
+        and (max-device-width : 1024px) 
+        and (orientation : landscape) {
+            /* Styles */
+            #header-id{border:1px yellow solid;clear:both;position:relative;}
+            #topbar{border:1px yellow solid;clear:both;position:relative;width:30%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { border: 2px yellow solid; width:30%}
+            .pull-left .img-responsive{ border: 2px yellow solid; width:100%}
+            #header-right { border: 2px yellow solid; width:30%}
+            #dropdown-menu-login {border: 2px yellow solid; width:80%; float:right !important;   }
+        }
+
+        /* iPads (portrait) ----------- */
+        @media only screen 
+        and (min-device-width : 768px) 
+        and (max-device-width : 1024px) 
+        and (orientation : portrait) {
+            /* Styles */
+        }
+
+        /* Desktops and laptops ----------- */
+        @media only screen 
+        and (min-width : 1224px) {
+            /* Styles */
+
+            #header-id{clear:both;position:relative;}
+            #topbar{clear:both;position:relative;width:30%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { width:30%}
+            .pull-left .img-responsive{ width:100%}
+            #header-right { width:8%}
+            #dropdown-menu-login {width:300px; float:left; margin-left: -220px;}
+				
+			#mapper-location #mapa {width:1024px; height:500px;}
+
+        }
+
+        /* Large screens ----------- */
+        @media only screen 
+        and (min-width : 1824px) {
+            /* Styles */
+            #header-id{ clear:both;position:relative;}
+            #topbar{ clear:both;position:relative;width:30%; display: none;}
+            // #sidebar-search{position:relative}
+            #topbar .breadcrumb{display: none;}
+
+            .pull-left { width:30%}
+            .pull-left .img-responsive{ width:100%}
+            #header-right {width:10%}
+            #dropdown-menu-login {width:370px; float:left; margin-left: -270px;}
+
+
+        }
+
+        /* iPhone 4 ----------- */
+        @media
+        only screen and (-webkit-min-device-pixel-ratio : 1.5),
+        only screen and (min-device-pixel-ratio : 1.5) {
+            /* Styles */
+        }
+
+    </style>
+	
+	
+    <?php
+    $auth = Zend_Auth::getInstance();
+    $user = $auth->getStorage()->read();
+    ?>
+    <body class="fixed-breadcrumbs sidebar-collapsed">
+        <!--	<div id="loading"></div>-->
+        <div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                        <h4 class="modal-title">CARREGANDO</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert">
+                            <img src="/img/loadings/ajax-loader.gif">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start: Header -->
+        <header class="navbar navbar-fixed-top" id="header-id">
+            <div class="pull-left"> <a class="navbar-brand" href="/home/">
+                    <div class="navbar-logo"><img src="/img/logo1.png" class="img-responsive" alt="logo" style="height: 40px; width:60px;" /></div>
+                </a> 
+            </div>
+
+
+            <div class="pull-right header-btns" id="header-right">
+                <div class="btn-group user-menu">
+                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"> <span class="glyphicons glyphicons-user"></span> <b><?php echo $user['user']->nomeCompleto; ?></b> </button>
+                    <ul class="dropdown-menu checkbox-persist" role="menu" id="dropdown-menu-login">
+                        <li class="menu-arrow">
+                            <div class="menu-arrow-up"></div>
+                        </li>
+                        <li class="dropdown-header">Your Account <span class="pull-right glyphicons glyphicons-user"></span></li>
+                        <li class="dropdown-header"> <span> <i class="fa fa-lock"></i> <a href="/login/index/logout"> sair </a> </span></li>
+                    </ul>
+                </div>
+                <div style="width:40px; height: 28px;"></div>
+            </div>
+
+
+
+
+        </header>
+
+        <!-- End: Header --> 
+        <!-- Start: Main -->
+        <div id="main"> 
+            <!-- Start: Sidebar -->
+            <aside id="sidebar" class="affix">
+                <div id="sidebar-search">
+                    <form role="search" />
+                    <input type="text" class="search-bar form-control" placeholder="Search" />
+                    <i class="fa fa-search field-icon-right"></i>
+                    <button type="submit" class="btn btn-default hidden"></button>
+                    </form>
+                    <div class="sidebar-toggle"> <i class="fa fa-bars"></i> </div>
+                </div>
+                <div id="sidebar-menu">
+                    <ul class="nav sidebar-nav">
+                        <li> <a class="accordion-toggle collapsed" href="#resources"><span class="glyphicons glyphicons-settings"></span><span class="sidebar-title">Perfil</span><span class="caret"></span></a>
+                            <ul id="resources" class="nav sub-nav">
+                                <li><a href="/home/perfil/"><span class="glyphicons glyphicons-edit"></span> Editar Perfil </a></li>
+                                <li><a href="/home/perfil/listagem/"><span class="glyphicons glyphicons-search"></span> Lista de Perfis </a></li>
+                                <li><a href="/home/perfil/mapaperfil/"><span class="glyphicons glyphicons-search"></span> Mapa de Perfis </a></li>
+                                
+                                <li><a href="/home/perfil/remover/"><span class="glyphicons glyphicons-circle_remove"></span> Remover Perfil </a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <!-- End: Sidebar --> 
+            <!-- Start: Content -->
+            <section id="content">
+                <div id="topbar">
+                    <ol class="breadcrumb">
+                        <li><a href="/home/"><i class="fa fa-home"></i></a></li>
+                        <li><a href="/home/">Home</a></li>
+                    </ol>
+                </div>
+                <div class="container"> 
+                    <?php echo $this->layout()->content; ?>
+                </div>
+            </section>
+            <!-- End: Content --> 
+        </div>
+        <!-- End: Main --> 
+
+
+    </body>
+</html>
