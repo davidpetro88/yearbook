@@ -103,10 +103,13 @@ class Login_IndexController extends Zend_Controller_Action {
      * Logout
      */
     public function logoutAction() {
+        unset($_COOKIE['username']);
+        unset($_COOKIE['id_role']);
+
         $auth = Zend_Auth::getInstance();
         $auth->clearIdentity();
-        
-        session_destroy();
+        $auth->getStorage()->write(null);
+
         $this->_redirect('/login');
     }
 
@@ -117,6 +120,12 @@ class Login_IndexController extends Zend_Controller_Action {
     }
 
     public function cadastrarAction() {
+        unset($_COOKIE['username']);
+        unset($_COOKIE['id_role']);
+        $auth = Zend_Auth::getInstance();
+        $auth->clearIdentity();
+        $auth->getStorage()->write(null);
+        
         $this->_helper->layout->disableLayout();
         $this->_helper->layout()->setLayout('cadastro');
     }

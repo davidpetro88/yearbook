@@ -1,6 +1,6 @@
 <?php
 
-/*
+
  $database_host     = getenv('OPENSHIFT_MYSQL_DB_HOST');
  $database_port     = getenv('OPENSHIFT_MYSQL_DB_PORT');
  $database_username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
@@ -10,9 +10,10 @@
 
 echo $database_host;
 echo "<br>";echo "<br>";
+
 echo  $database_port;
 die();
-*/
+
 
 
 

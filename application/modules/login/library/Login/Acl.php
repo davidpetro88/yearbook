@@ -26,14 +26,6 @@ class Login_Acl extends Zend_Acl {
             $inhRole = $roles->getParentRole($inhRole);
         }
 
-
-//        if (is_array($inhRole)) {
-//            while (!empty($inhRole)) {
-//                $this->loadResources($db, $inhRole);
-//                $this->loadPermissions($db, $inhRole);
-//                $inhRole = $roles->getParentRole($inhRole);
-//            }
-//        }
     }
 
     /**

@@ -18,10 +18,12 @@ class Home_IndexController extends Zend_Controller_Action {
      */
     public function indexAction() {
 
+        
         $userMapper = new Home_Model_Mapper_UsersMapper();
         $auth = Zend_Auth::getInstance();
         $this->view->user = $auth->getStorage()->read();
 
+        
         $LastProfileSeeMapper = new Home_Model_Mapper_LastProfileSeeMapper();
         $findLastSee = $LastProfileSeeMapper->findLastSee($this->view->user['username']);
 

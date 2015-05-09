@@ -21,10 +21,6 @@ class Ws_IndexController extends Zend_Controller_Action {
         $userMapper =  new Home_Model_Mapper_UsersMapper();
         $auth = Zend_Auth::getInstance();
         $this->view->user = $auth->getStorage()->read();
-        
-
-        //print_r($us->fetchByUsername($_SESSION['Zend_Auth']['storage']['username'] ));
-        
     }
 
     /**
